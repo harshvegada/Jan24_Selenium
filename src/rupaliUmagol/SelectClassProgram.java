@@ -112,6 +112,7 @@ public class SelectClassProgram {
 	}
 
 	public static void main(String[] args) throws InterruptedException {
+		System.out.println("Facebook Login");
 		SelectClassProgram selectClass = new SelectClassProgram();
 		selectClass.getDateFromLogin();
 	}
