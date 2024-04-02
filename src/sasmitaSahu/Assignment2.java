@@ -9,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
 public class Assignment2 {
-	
+
 	public static void main(String[] args) throws InterruptedException {
 		System.out.println("STEP-Launch the browser");
 		WebDriver driver = new ChromeDriver();
@@ -29,62 +29,57 @@ public class Assignment2 {
 		System.out.println("STEP-Enter password");
 		driver.findElement(By.xpath("//input[@data-type='password']")).sendKeys("123sasmita");
 		System.out.println("STEP-Select bithday month");
-		WebElement e= driver.findElement(By.xpath("//select[@id='month']"));
-		Select monthSelect= new Select(e);		
+		WebElement e = driver.findElement(By.xpath("//select[@id='month']"));
+		Select monthSelect = new Select(e);
 		monthSelect.selectByVisibleText("May");
 		List<WebElement> monthOptionElemts = monthSelect.getOptions();
-		String selectedmonth="";
-		for(WebElement element :monthOptionElemts ) {
-			if(element.isSelected())
-	
-			selectedmonth=element.getText();
+		String selectedmonth = "";
+		for (WebElement element : monthOptionElemts) {
+			if (element.isSelected())
+
+				selectedmonth = element.getText();
 		}
-	
-System.out.println("Verify- selected month is as Expected");
-	if(selectedmonth.equals("May"))
-		System.out.println("test pass");
-	else
-	System.out.println("Test fail");
-	
 
-System.out.println("STEP-Select bithday date from date picker");
-WebElement d = driver.findElement(By.xpath("//select[@id='day']"));
-Select dateSelect= new Select(d);		
-dateSelect.selectByValue("5");
-List<WebElement> dateOptionElemts = dateSelect.getOptions();
-String selecteddate="";
-for(WebElement element :dateOptionElemts ) {
-	if(element.isSelected())
-		selecteddate=element.getText();
-}
+		System.out.println("Verify- selected month is as Expected");
+		if (selectedmonth.equals("May"))
+			System.out.println("test pass");
+		else
+			System.out.println("Test fail");
 
-System.out.println("Verify- selected date is as Expected");
-if(selecteddate.equals("5"))
-System.out.println("test pass");
-else
-System.out.println("Test fail");
+		System.out.println("STEP-Select bithday date from date picker");
+		WebElement d = driver.findElement(By.xpath("//select[@id='day']"));
+		Select dateSelect = new Select(d);
+		dateSelect.selectByValue("5");
+		List<WebElement> dateOptionElemts = dateSelect.getOptions();
+		String selecteddate = "";
+		for (WebElement element : dateOptionElemts) {
+			if (element.isSelected())
+				selecteddate = element.getText();
+		}
 
+		System.out.println("Verify- selected date is as Expected");
+		if (selecteddate.equals("5"))
+			System.out.println("test pass");
+		else
+			System.out.println("Test fail");
 
+		System.out.println("STEP-Select bithday year from date picker");
+		Thread.sleep(2000);
+		WebElement y = driver.findElement(By.xpath("//select[@id='year']"));
+		Select yearSelect = new Select(y);
+		yearSelect.selectByValue("1991");
+		List<WebElement> yearOptionElemts = yearSelect.getOptions();
+		String selecteyear = "";
+		for (WebElement element : yearOptionElemts) {
+			if (element.isSelected())
+				selecteyear = element.getText();
+		}
 
+		System.out.println("Verify- selected date is as Expected");
+		if (selecteyear.equals("1991"))
+			System.out.println("test pass");
+		else
+			System.out.println("Test fail");
 
-System.out.println("STEP-Select bithday year from date picker");
-Thread.sleep(2000);
-WebElement y = driver.findElement(By.xpath("//select[@id='year']"));
-Select yearSelect= new Select(y);		
-yearSelect.selectByValue("1991");
-List<WebElement> yearOptionElemts = yearSelect.getOptions();
-String selecteyear="";
-for(WebElement element :yearOptionElemts ) {
-	if(element.isSelected())
-		selecteyear=element.getText();
-}
-
-System.out.println("Verify- selected date is as Expected");
-if(selecteyear.equals("1991"))
-System.out.println("test pass");
-else
-System.out.println("Test fail");
-
-
-}
+	}
 }
