@@ -43,11 +43,11 @@ public class Facebook_login {
 
 		List<WebElement> dateOption = select.getOptions();
 
-		for (WebElement date : dateOption) {
+		for (WebElement elements : dateOption) {
 			String expected = "31";
-			if (date.isSelected()) {
-				if (expected.equals(date.getText())) {
-					System.out.println("Test pass");
+			if (elements.isSelected()) {
+				if (expected.equals(elements.getText())) {
+					System.out.println("Test passed");
 				} else {
 					System.out.println("test Fail");
 				}
@@ -55,40 +55,40 @@ public class Facebook_login {
 		}
 
 		System.out.println("Step: Select month from drop down");
-		WebElement element1 = driver.findElement(By.xpath("//select[@name='birthday_month']"));
+		WebElement element1 = driver.findElement(By.xpath("//select[@id='month']"));
 
 		System.out.println("Step: Verifying month");
 		Select select1 = new Select(element1);
 		select1.selectByVisibleText("Oct");
 
-		List<WebElement> monthOption = select.getOptions();
-		for (WebElement month : monthOption) {
-			String expected1 = "Oct";
-			if (month.isSelected()) {
-				if (expected1.equals(month.getText())) {
-					System.out.println("Test Positive");
-				} else {
-					System.out.println("Negative test");
-				}
+		List<WebElement> monthOption = select1.getOptions();
+
+		for (WebElement elements : monthOption) {
+			String expected = "Oct";
+			if (elements.isSelected()) {
+				if (expected.equals(elements.getText())) {
+					System.out.println("Test Passed");
+				} else
+					System.out.println("Test Failed");
 			}
 		}
 
-		System.out.println("Step: Select Year from drop down");
-		WebElement element2 = driver.findElement(By.xpath("//select[@name='birthday_year']"));
+		System.out.println("STEP : Select Year from Year drop down");
+		WebElement element2 = driver.findElement(By.xpath("//select[@id='year']"));
 
-		System.out.println("Step: Verify year");
-		Select select2 = new Select(element2);
-		select2.selectByVisibleText("1988");
+		System.out.println("Step: Verifying year");
+		Select selectForYear = new Select(element2);
+		selectForYear.selectByVisibleText("1988");
 
-		List<WebElement> yearOption = select.getOptions();
-		for (WebElement year : yearOption) {
-			String expected2 = "1988";
-			if (year.isSelected()) {
-				if (expected2.equals(year.getText())) {
-					System.out.println("Test Positive");
-				} else {
-					System.out.println("Negative test");
-				}
+		List<WebElement> optionsForYear = selectForYear.getOptions();
+
+		for (WebElement elements : optionsForYear) {
+			String expected = "1988";
+			if (elements.isSelected()) {
+				if (expected.equals(elements.getText())) {
+					System.out.println("Test Passed");
+				} else
+					System.out.println("Test Failed");
 			}
 		}
 		System.out.println("Step: close the browser");
