@@ -1,10 +1,11 @@
 package shravaniRapelli;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 public class Assign1 {
-	
+	//TestCase1 - Registration page alert message check for password more than 8 characters
 	void testCase1() throws InterruptedException {
 		WebDriver driver = new ChromeDriver();
 		System.out.println("########Test Case 1########");
@@ -35,7 +36,7 @@ public class Assign1 {
 		alert.accept();
 		driver.quit();
 	}
-	
+	//TestCase2 - Registration page alert message check for password less than 8 characters
 	void testCase2() throws InterruptedException {
 		WebDriver driver = new ChromeDriver();
 		System.out.println("########Test Case 2########");
@@ -66,7 +67,7 @@ public class Assign1 {
 		alert.accept();
 		driver.quit();
 	}
-
+	//TestCase3 - Basic elements Page - AlertDemo - alert message verification
 	void testCase3() throws InterruptedException {
 		WebDriver driver = new ChromeDriver();
 		System.out.println("########Test Case 3########");
@@ -101,7 +102,7 @@ public class Assign1 {
 		alert.accept();
 		driver.quit();
 	}
-	
+	//TestCase4 - Basic elements Page - BASIC FORMS - alert message verification
 	void testCase4() throws InterruptedException {
 		WebDriver driver = new ChromeDriver();
 		System.out.println("########Test Case 4########");
@@ -133,17 +134,19 @@ public class Assign1 {
 		alert.accept();
 		driver.quit();
 	}
-	
+	//TestCase5 - Basic elements Page - Alert button - alert message verification
 	void testCase5() throws InterruptedException {
 		WebDriver driver = new ChromeDriver();
 		System.out.println("########Test Case 5########");
 		System.out.println("STEP: Launch the browser");
 		driver.get("http://automationbykrishna.com");
-		driver.manage().window().maximize();
+	//	driver.manage().window().maximize();
 		System.out.println("STEP : Clicking on Basic elements");
 		driver.findElement(By.xpath("//a[@id='basicelements']")).click();
 		Thread.sleep(2000);
 		System.out.println("STEP: Clicking on alert button");
+		JavascriptExecutor je = (JavascriptExecutor)driver;
+		je.executeScript("window.scrollBy(0,500)");
 		driver.findElement(By.xpath("//button[@class='btn btn-success']")).click();
 		
 		System.out.println("handle alert text");
