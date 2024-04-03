@@ -10,7 +10,18 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
-
+/*
+ Open http://automationbykrishna.com/index.html this URL and click on Basic element
+ scroll page, and check select dropdown, there are 2 drop downs for those 2 dropdowns
+ check following conditiosn : 
+ 1) Check weather dropdowns are multiple select or single select.
+ 2) Check how many options we can select for both dropdowns
+ 3) Select 3 number for first dropdown and verify selected value and expected value,
+ if both are equals then pass test case else test case failed.
+ 4) For 2nd dropdown, select event index number and verify selected and expected
+ value if both are equals then pass test case else test case failed.
+ * 
+ */
 public class Assignment3MultipleSelect {
 	WebDriver driver;
 	
