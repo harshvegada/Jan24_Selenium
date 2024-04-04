@@ -33,14 +33,23 @@ public class MultiSelect {
 			System.out.println("VERIFY : List is single selected");
 		}
 		
+		List<WebElement> listOfAllOptions = multiSelect.getOptions();
+		
+		System.out.println("VERFIY : Number of options avilable to select : " + listOfAllOptions.size());
+		System.out.print("VERIFY : Options to select : ");
+		
+		for(WebElement we : listOfAllOptions) {
+			System.out.print(we.getText() + " ");
+		}
+		System.out.println();
 		System.out.println("STEP : Select options from list");
 		
 		multiSelect.selectByVisibleText("1");
 		multiSelect.selectByVisibleText("3");
 		multiSelect.selectByVisibleText("5");
 		
-		
 		List<WebElement> listOfSelected  = multiSelect.getAllSelectedOptions();
+		
 		System.out.print("VERIFY : All selected options from list are : ");
 		for(WebElement we : listOfSelected) {
 			System.out.print(we.getText() + " ");
@@ -49,6 +58,7 @@ public class MultiSelect {
 		System.out.println("STEP : Close the browser");
 		driver.quit();
 	}
+	
 	public static void main(String[] args){
 		new MultiSelect().multiSelect();
 	}
