@@ -66,7 +66,9 @@ public class Assignment_3 {
 		List<WebElement> list = selectList.getOptions();
 		System.out.println(list.size());
 		System.out.println("STEP : List of option that we can select");
-		System.out.println(list);
+		for (WebElement e : list) {
+			System.out.println(e.getText());
+		}
 		System.out.println("STEP : Check dropdown is multi select or not");
 		System.out.println("List is MultiSelect : " + selectList.isMultiple());
 		System.out.println("STEP : Now Select odd Value-1,3 and 5");
