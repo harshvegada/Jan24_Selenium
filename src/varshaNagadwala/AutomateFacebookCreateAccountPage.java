@@ -9,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
 //Assignment - 2
-//Step 1 : Launch browser and hit https://facebook.com
+//Step 1 : Launch browser and hit https://facebook.com   
 //Step 2 : Click on Create Account button
 //Step 3 : Enter appropiate value in all textbox. 
 //Step 4 : Select Date from Date dropdown
