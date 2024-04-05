@@ -84,7 +84,11 @@ public class Assgn3_SelectDropdownOptions {
 		List<WebElement> allOption = multiselect.getAllSelectedOptions();
 		for (int i = 0; i < allOption.size(); i++) {
 			System.out.println(allOption.get(i).getText());
+
 		}
+		System.out.println("Step 9 : Close session");
+		driver.quit();
+
 	}
 
 }
