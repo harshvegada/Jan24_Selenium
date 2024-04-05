@@ -323,7 +323,7 @@ public class AutomationByKrishnaAutomateRegistration {
 //	TestCase13 - Verify alert message for re-password when password and re-password are not matching but value provided for above fields
 	void testCase12And13() {
 
-		System.out.println("testCase11 Start");
+		System.out.println("testCase12 Start");
 
 		String expectedAlertText = "please reenter password";
 
@@ -335,7 +335,7 @@ public class AutomationByKrishnaAutomateRegistration {
 		registrationButton.click();
 
 		System.out.println("STEP : Call Alert Method");
-		handleAlertAndVerifyMessage(expectedAlertText, "testCase11");
+		handleAlertAndVerifyMessage(expectedAlertText, "testCase12");
 
 		System.out.println();
 		System.out.println("testCase13 Start");
