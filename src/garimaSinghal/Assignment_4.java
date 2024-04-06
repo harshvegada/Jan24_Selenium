@@ -42,7 +42,7 @@ public class Assignment_4 {
 		password = driver.findElement(By.xpath("//input[@id='passwordReg']"));
 		reEnterPwd = driver.findElement(By.xpath("//input[@id='repasswordReg']"));
 		regButton = driver.findElement(By.xpath("//button[@id='btnsubmitsignUp']"));
-		agreeTerms=driver.findElement(By.xpath("//input[@id='signupAgreement']"));
+		agreeTerms = driver.findElement(By.xpath("//input[@id='signupAgreement']"));
 	}
 
 	void verifyAlertText(String expectedAlertText, String tcName) {
@@ -97,147 +97,177 @@ public class Assignment_4 {
 	// Testcase2 - Verify alert message for name when name value not provided
 	void testcase2() {
 		System.out.println("Verify alert message for name when name value not provided");
-		String originalName = userNameElement.getAttribute("value"); 
+		String originalName = userNameElement.getAttribute("value");
 		userNameElement.clear();
 		scrollElement(regButton);
 		regButton.click();
 		verifyAlertText("Full name can't be blank", "TC2");
 		userNameElement.sendKeys(originalName);
 	}
-	
-	//TestCase3 - Verify alert message for address when address value not provided but value provided for above fields
+
+	// TestCase3 - Verify alert message for address when address value not provided
+	// but value provided for above fields
 	void testcase3() {
-		System.out.println("Verify alert message for address when address value not provided but value provided for above fields");
-		String originalName = address.getAttribute("value"); 
+		System.out.println(
+				"Verify alert message for address when address value not provided but value provided for above fields");
+		String originalName = address.getAttribute("value");
 		address.clear();
 		scrollElement(regButton);
 		regButton.click();
 		verifyAlertText("address cannot be blank", "TC3");
 		address.sendKeys(originalName);
 	}
-	//TestCase4 - Verify alert message for email when email not provided but value provided for above fields
-	 void testcase4() {
-		System.out.println("Verify alert message for email when email not provided but value provided for above fields");
-		String originalName = emailId.getAttribute("value"); 
+
+	// TestCase4 - Verify alert message for email when email not provided but value
+	// provided for above fields
+	void testcase4() {
+		System.out
+				.println("Verify alert message for email when email not provided but value provided for above fields");
+		String originalName = emailId.getAttribute("value");
 		emailId.clear();
 		scrollElement(regButton);
 		regButton.click();
 		verifyAlertText("Please enter email id", "TC4");
 		emailId.sendKeys(originalName);
 	}
-	 //TestCase5 - Verify alert message for correct email when wrong email provided but value provided for above fields
-	 void testcase5() {
-			System.out.println("Verify alert message for correct email when wrong email provided but value provided for above fields");
-			String originalName = emailId.getAttribute("value"); 
-			emailId.clear();
-			emailId.sendKeys("garima");
-			scrollElement(regButton);
-			regButton.click();
-			verifyAlertText("Please use correct email format", "TC5");
-			emailId.clear();
-			emailId.sendKeys(originalName);
-		}
-	 //TestCase6 - Verify alert message for city when city value not provided but value provided for above fields
-	 void testcase6() {
-			System.out.println("Verify alert message for city when city value not provided but value provided for above fields");
-			String originalName = city.getAttribute("value"); 
-			city.clear();
-			scrollElement(regButton);
-			regButton.click();
-			verifyAlertText("Please enter City", "TC6");
-			city.sendKeys(originalName);
-		}
-	//TestCase7 - Verify alert message for organization name when organization name value not provided but value provided for above fields
-	 void testcase7() {
-			System.out.println("Verify alert message for organization name when organization name value not provided but value provided for above fields");
-			String originalName = companyName.getAttribute("value"); 
-			companyName.clear();
-			scrollElement(regButton);
-			regButton.click();
-			verifyAlertText("Please enter your current organization", "TC7");
-			companyName.sendKeys(originalName);
-		}
-	 
-	 //TestCase8 - Verify alert message for username when username value not provided but value provided for above fields
-	 void testcase8() {
-			System.out.println("Verify alert message for username when username value not provided but value provided for above fields");
-			String originalName = userName.getAttribute("value"); 
-			userName.clear();
-			scrollElement(regButton);
-			regButton.click();
-			verifyAlertText("Username is mandatory field.", "TC8");
-			userName.sendKeys(originalName);
-		}
-	 
-	 //TestCase9 - Verify alert message for username less then 5 character when username length is less then 5 but value provided for above fields
-	 void testcase9() {
-			System.out.println("Verify alert message for username when username value not provided but value provided for above fields");
-			String originalName = userName.getAttribute("value"); 
-			userName.clear();
-			userName.sendKeys("gari");
-			scrollElement(regButton);
-			regButton.click();
-			verifyAlertText("Username length should be greater then 5 characters.", "TC9");
-			userName.clear();
-			userName.sendKeys(originalName);
-		} 
-	 
-	 //TestCase10 - Verify alert message for password when password value not provided but value provided for above fields
-	 void testcase10() {
-			System.out.println("Verify alert message for password when password value not provided but value provided for above fields");
-			String originalName = password.getAttribute("value"); 
-			password.clear();
-			scrollElement(regButton);
-			regButton.click();
-			verifyAlertText("password is mandatory field.", "TC10");
-			password.sendKeys(originalName);
-		} 
-	 // TestCase11 - Verify alert message for password less then 5 character when password length is less then 5 but value provided for above fields
-	 void testcase11() {
-			System.out.println("Verify alert message for password less then 5 character when password length is less then 5 but value provided for above fields");
-			String originalName = password.getAttribute("value"); 
-			password.clear();
-			password.sendKeys("gari");
-			scrollElement(regButton);
-			regButton.click();
-			verifyAlertText("password length should be greater then 5 characters.", "TC11");
-			password.clear();
-			password.sendKeys(originalName);
-		} 
-	 //TestCase12 - Verify alert message for re-password when re-password value not provided but value provided for above fields
-	 void testcase12() {
-			System.out.println("Verify alert message for re-password when re-password value not provided but value provided for above fields");
-			String originalName = reEnterPwd.getAttribute("value"); 
-			reEnterPwd.clear();
-			scrollElement(regButton);
-			regButton.click();
-			verifyAlertText("please reenter password", "TC12");
-			reEnterPwd.sendKeys(originalName);
-		} 
-	 //TestCase13 - Verify alert message for re-password when password and re-password are not matching but value provided for above fields
-	 void testcase13() {
-			System.out.println("Verify alert message for re-password when password and re-password are not matching but value provided for above fields");
-			String originalName = reEnterPwd.getAttribute("value"); 
-			reEnterPwd.clear();
-			reEnterPwd.sendKeys("3577567");
-			scrollElement(regButton);
-			regButton.click();
-			verifyAlertText("retype password donot match.", "TC13");
-			reEnterPwd.clear();
-			reEnterPwd.sendKeys(originalName);
-		} 
-	 //TestCase14 - Verify alert message for Team and condition when Team and condition checkbox is not selected but value provided for above fields
-	 void testcase14() {
-			System.out.println("Verify alert message for Team and condition when Team and condition checkbox is not selected but value provided for above fields");
-			agreeTerms.click();
-			scrollElement(regButton);
-			regButton.click();
-			verifyAlertText("Please agree to terms of service and privacy policy", "TC14");
-			agreeTerms.click();
-			driver.quit();
-		} 
 
+	// TestCase5 - Verify alert message for correct email when wrong email provided
+	// but value provided for above fields
+	void testcase5() {
+		System.out.println(
+				"Verify alert message for correct email when wrong email provided but value provided for above fields");
+		String originalName = emailId.getAttribute("value");
+		emailId.clear();
+		emailId.sendKeys("garima");
+		scrollElement(regButton);
+		regButton.click();
+		verifyAlertText("Please use correct email format", "TC5");
+		emailId.clear();
+		emailId.sendKeys(originalName);
+	}
 
+	// TestCase6 - Verify alert message for city when city value not provided but
+	// value provided for above fields
+	void testcase6() {
+		System.out.println(
+				"Verify alert message for city when city value not provided but value provided for above fields");
+		String originalName = city.getAttribute("value");
+		city.clear();
+		scrollElement(regButton);
+		regButton.click();
+		verifyAlertText("Please enter City", "TC6");
+		city.sendKeys(originalName);
+	}
+
+	// TestCase7 - Verify alert message for organization name when organization name
+	// value not provided but value provided for above fields
+	void testcase7() {
+		System.out.println(
+				"Verify alert message for organization name when organization name value not provided but value provided for above fields");
+		String originalName = companyName.getAttribute("value");
+		companyName.clear();
+		scrollElement(regButton);
+		regButton.click();
+		verifyAlertText("Please enter your current organization", "TC7");
+		companyName.sendKeys(originalName);
+	}
+
+	// TestCase8 - Verify alert message for username when username value not
+	// provided but value provided for above fields
+	void testcase8() {
+		System.out.println(
+				"Verify alert message for username when username value not provided but value provided for above fields");
+		String originalName = userName.getAttribute("value");
+		userName.clear();
+		scrollElement(regButton);
+		regButton.click();
+		verifyAlertText("Username is mandatory field.", "TC8");
+		userName.sendKeys(originalName);
+	}
+
+	// TestCase9 - Verify alert message for username less then 5 character when
+	// username length is less then 5 but value provided for above fields
+	void testcase9() {
+		System.out.println(
+				"Verify alert message for username when username value not provided but value provided for above fields");
+		String originalName = userName.getAttribute("value");
+		userName.clear();
+		userName.sendKeys("gari");
+		scrollElement(regButton);
+		regButton.click();
+		verifyAlertText("Username length should be greater then 5 characters.", "TC9");
+		userName.clear();
+		userName.sendKeys(originalName);
+	}
+
+	// TestCase10 - Verify alert message for password when password value not
+	// provided but value provided for above fields
+	void testcase10() {
+		System.out.println(
+				"Verify alert message for password when password value not provided but value provided for above fields");
+		String originalName = password.getAttribute("value");
+		password.clear();
+		scrollElement(regButton);
+		regButton.click();
+		verifyAlertText("password is mandatory field.", "TC10");
+		password.sendKeys(originalName);
+	}
+
+	// TestCase11 - Verify alert message for password less then 5 character when
+	// password length is less then 5 but value provided for above fields
+	void testcase11() {
+		System.out.println(
+				"Verify alert message for password less then 5 character when password length is less then 5 but value provided for above fields");
+		String originalName = password.getAttribute("value");
+		password.clear();
+		password.sendKeys("gari");
+		scrollElement(regButton);
+		regButton.click();
+		verifyAlertText("password length should be greater then 5 characters.", "TC11");
+		password.clear();
+		password.sendKeys(originalName);
+	}
+
+	// TestCase12 - Verify alert message for re-password when re-password value not
+	// provided but value provided for above fields
+	void testcase12() {
+		System.out.println(
+				"Verify alert message for re-password when re-password value not provided but value provided for above fields");
+		String originalName = reEnterPwd.getAttribute("value");
+		reEnterPwd.clear();
+		scrollElement(regButton);
+		regButton.click();
+		verifyAlertText("please reenter password", "TC12");
+		reEnterPwd.sendKeys(originalName);
+	}
+
+	// TestCase13 - Verify alert message for re-password when password and
+	// re-password are not matching but value provided for above fields
+	void testcase13() {
+		System.out.println(
+				"Verify alert message for re-password when password and re-password are not matching but value provided for above fields");
+		String originalName = reEnterPwd.getAttribute("value");
+		reEnterPwd.clear();
+		reEnterPwd.sendKeys("3577567");
+		scrollElement(regButton);
+		regButton.click();
+		verifyAlertText("retype password donot match.", "TC13");
+		reEnterPwd.clear();
+		reEnterPwd.sendKeys(originalName);
+	}
+
+	// TestCase14 - Verify alert message for Team and condition when Team and
+	// condition checkbox is not selected but value provided for above fields
+	void testcase14() {
+		System.out.println(
+				"Verify alert message for Team and condition when Team and condition checkbox is not selected but value provided for above fields");
+		agreeTerms.click();
+		scrollElement(regButton);
+		regButton.click();
+		verifyAlertText("Please agree to terms of service and privacy policy", "TC14");
+		agreeTerms.click();
+		driver.quit();
+	}
 
 	public static void main(String[] args) {
 		Assignment_4 assignment_4 = new Assignment_4();
@@ -255,6 +285,5 @@ public class Assignment_4 {
 		assignment_4.testcase12();
 		assignment_4.testcase13();
 		assignment_4.testcase14();
-		
 	}
 }
