@@ -1,13 +1,7 @@
 package akshayGaikwad;
-/*C1 : In table 1, how many employees are there. 
-Answer : 5
-
-
+/*TC1 : In table 1, how many employees are there. 
 TC2 : In table1, how many column are there and print all headers of each column [compare list to list].
-Answer : 4
-----------------------------------------------------------
 TC3 : Find of total username in table1, verify each  username is unique. Print all usernames. 
----------------------------------------------
 TC4 : Print all the unique surnames and print duplicate surnames if any using List+Set. 
 TC5 : Print all the unique surnames and print duplicate surnames if any using Map. 
 TC6 : Print all the unique surnames and print duplicate surnames if any using Set. 
