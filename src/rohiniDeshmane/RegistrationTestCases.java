@@ -263,14 +263,14 @@ public class RegistrationTestCases {
 	
 	//TestCase11 - Verify alert message for password less then 5 character when password length is less then 5 but value provided for above fields
 	void validatePasswordWithLength() {
-		String expectedText = "Password length should be greater then 5 characters.";
+		String expectedText = "password length should be greater then 5 characters.";
 		String originalText = password.getAttribute("value");
 		
 		System.out.println("STEP : Clear Password");
 		password.clear();
 		
 		System.out.println("STEP : Enter Password");
-		password.sendKeys("abcdef");
+		password.sendKeys("abcd");
 		
 		System.out.println("STEP : Get Password input value");
 		String enteredText = password.getAttribute("value");
@@ -278,7 +278,7 @@ public class RegistrationTestCases {
 		System.out.println("VERIFY : Check entered password length");
 		if(enteredText.length() < 5) {
 			System.out.println("Password length is less than 5");
-		}
+		}	
 		
 		System.out.println("STEP : Click on Registration button");
 		pageScroll(registrationBtn);
@@ -287,8 +287,25 @@ public class RegistrationTestCases {
 		System.out.println("STEP : Alert msg popup");
 		System.out.println(expectedText);
 		verifyAlertText(expectedText, "Test Case 11 : ");
+		password.sendKeys(originalText);
+	}
+	
+	//TestCase12 - Verify alert message for re-password when re-password value not provided but value provided for above fields
+	void validateReTypePassword() {
+		String expectedText = "please reenter password";
+		String originalText = retypePassword.getAttribute("value");
 		
-		userName.sendKeys(originalText);
+		System.out.println("STEP : Clear Password");
+		retypePassword.clear();
+		
+		System.out.println("STEP : Click on Registration button");
+		pageScroll(registrationBtn);
+		registrationBtn.click();
+		
+		System.out.println("STEP : Alert msg popup");
+		System.out.println(expectedText);
+		verifyAlertText(expectedText, "Test Case 12 : ");
+		retypePassword.sendKeys(originalText);
 	}
 	
 	public static void main(String[] args) {
@@ -305,5 +322,7 @@ public class RegistrationTestCases {
 		registrationTestCases.validateUserNameWithLength();
 		registrationTestCases.validatePassword();
 		registrationTestCases.validatePasswordWithLength();
+		registrationTestCases.validateReTypePassword();
+		
 	}
 }
