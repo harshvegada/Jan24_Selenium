@@ -189,5 +189,7 @@ public class Assignment1 {
 		as.alertDemoTest();
 		System.out.println("--------------");
 		as.basicFormAlertMessageTest();
+		System.out.println("--------------");
+		as.basicElementAlertButton();
 	}
 }
