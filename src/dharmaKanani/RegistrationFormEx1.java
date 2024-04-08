@@ -31,7 +31,6 @@ public class RegistrationFormEx1 {
 	void Case1() throws InterruptedException {
 
 		setUp();
-
 		System.out.println("STEP: Click on Registration Link");
 		driver.findElement(By.xpath("//a[@id='registration2']")).click();
 
