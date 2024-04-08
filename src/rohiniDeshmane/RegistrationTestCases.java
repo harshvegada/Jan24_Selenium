@@ -364,5 +364,6 @@ public class RegistrationTestCases {
 		registrationTestCases.validateReTypePassword();
 		registrationTestCases.validateReTypePawwordWithLength();
 		registrationTestCases.validateTermConditionCheckbox();
+
 	}
 }
