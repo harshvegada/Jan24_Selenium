@@ -3,13 +3,13 @@
 TestCase1 - Return the map of manager name and number of employees working in each manager.
 TestCase2 - Return the map of manager name and name of employees working in each manager using string.
 TestCase3 - Return the map of manager name and name of employees working in each manager using List.
-
 */
 
 package phenolVerma;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -84,7 +84,7 @@ public class ManagerFrequencyCheck {
 		// Close the WebDriver
 		driver.quit();
 	}
-	
+
 	// TestCase2 - Return the map of manager name and name of employees working in
 	// each manager using string.
 
@@ -122,8 +122,6 @@ public class ManagerFrequencyCheck {
 		driver.quit();
 	}
 
-
-
 	// TestCase3 - Return the map of manager name and name of employees working in
 	// each manager using List.
 
@@ -133,7 +131,7 @@ public class ManagerFrequencyCheck {
 		getManagerEmployeeData();
 
 		System.out.println("Creating Map to store managerName and Employee number");
-		Map<String, List<String>> managerEmployeeMap = new LinkedHashMap<String, List<String>>();
+		Map<String, LinkedHashSet<String>> managerEmployeeMap = new LinkedHashMap<String, LinkedHashSet<String>>();
 
 		for (int index = 1; index <= tablelength; index++) {
 
@@ -147,14 +145,14 @@ public class ManagerFrequencyCheck {
 			if (managerEmployeeMap.containsKey(managerName)) {
 				managerEmployeeMap.get(managerName).add(emploeeName);
 			} else {
-				List<String> employees = new ArrayList<>();
+				LinkedHashSet<String> employees = new LinkedHashSet<>();
 				employees.add(emploeeName);
 				managerEmployeeMap.put(managerName, employees);
 			}
 		}
 
 		System.out.println("Manager ID  | Number Of Employees  |  Employee Name");
-		for (Map.Entry<String, List<String>> entry : managerEmployeeMap.entrySet()) {
+		for (Map.Entry<String, LinkedHashSet<String>> entry : managerEmployeeMap.entrySet()) {
 			System.out.println(entry.getKey() + " | " + entry.getValue().size() + " | " + entry.getValue());
 		}
 
@@ -169,7 +167,7 @@ public class ManagerFrequencyCheck {
 
 		System.out.println("*************************************************");
 		managerFrequencyCheck.getNameOfManagerEmployeeUsingString();
-		
+
 		System.out.println("*************************************************");
 		managerFrequencyCheck.getNameOfManagerEmployeeUsingList();
 	}
