@@ -94,6 +94,7 @@ WebDriver driver;
 		}
 		System.out.println("Unique employee id is = "+uniqueCount);
 		System.out.println("Test Case 5 : Passed");
+		driver.close();
 	}
 	
 	public static void main(String[] args) {
