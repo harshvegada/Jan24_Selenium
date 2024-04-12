@@ -24,7 +24,7 @@ public class FacebookLogInEx1 {
 		System.out.println("Step : click on Create New Account");
 		driver.findElement(By.xpath("//a[@rel='async']")).click();
 
-		System.out.println("Step : Enter your first name");
+		System.out.println("Step : Enter your First name");
 		driver.findElement(By.xpath("//input[@name='firstname']")).sendKeys("Dharma");
 
 		System.out.println("Step : Enter your LastName");
@@ -66,9 +66,9 @@ public class FacebookLogInEx1 {
 			String expected1 = "Mar";
 			if (month.isSelected()) {
 				if (expected1.equals(month.getText())) {
-					System.out.println("Test Positive");
+					System.out.println("Test Pass");
 				} else {
-					System.out.println("Negative test");
+					System.out.println("Test fail");
 				}
 			}
 		}
@@ -85,9 +85,9 @@ public class FacebookLogInEx1 {
 			String expected2 = "2000";
 			if (year.isSelected()) {
 				if (expected2.equals(year.getText())) {
-					System.out.println("Test Positive");
+					System.out.println("Test Pass");
 				} else {
-					System.out.println("Negative test");
+					System.out.println("Test fail");
 				}
 			}
 		}
