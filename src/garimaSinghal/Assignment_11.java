@@ -14,9 +14,9 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class Assignment_10 {
-WebDriver driver;
-	
+public class Assignment_11 {
+	WebDriver driver;
+
 	@BeforeClass
 	void launchAndHitUrl() {
 		System.out.println("STEP: Launch chrome Browser");
@@ -26,16 +26,16 @@ WebDriver driver;
 		System.out.println("STEP: Hit URL");
 		driver.get("http://automationbykrishna.com/");
 	}
-	
+
 	@Test(dataProvider = "loginDataProvider")
-	public void loginData(String uname,String pwd,String expectedText) {
+	public void loginData(String uname, String pwd, String expectedText) {
 		System.out.println("STEP: Click on Registration Link");
 		driver.findElement(By.xpath("//a[@id='registration2']")).click();
 
-		
 		System.out.println("STEP: Enter text into Username");
-		WebDriverWait wait= new WebDriverWait(driver,Duration.ofSeconds(20));
-		WebElement username=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='unameSignin']")));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		WebElement username = wait
+				.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='unameSignin']")));
 		username.sendKeys(uname);
 
 		System.out.println("STEP: Enter text into password more than 8 characters");
@@ -50,23 +50,11 @@ WebDriver driver;
 		alert.accept();
 		Assert.assertEquals(actualText, expectedText);
 	}
-	
-	@DataProvider(name="loginDataProvider")
+
+	@DataProvider(name = "loginDataProvider")
 	public Object[][] getLoginData() {
-		Object[][] data = new Object[3][3];
-		
-		data[0][0] = "mkanani";
-		data[0][1] = "mkan123";
-		data[0][2] = "Failed! please enter strong password";
-		
-		data[1][0] = "techno";
-		data[1][1] = "creditsTech123";
-		data[1][2] = "Success!";
-		
-		data[2][0] = "credits";
-		data[2][1] = "c123";
-		data[2][2] = "Success!";
-		
+		Object[][] data = ExcelOperations.readData("E:\\New folder\\Jan24_EliteQA_Automation_Garima\\data.xlsx",
+				"Logindata");
 		return data;
 	}
 
