@@ -1,7 +1,25 @@
 package rohiniDeshmane.iframes;
 
 import java.time.Duration;
+/*
+ * Assignment - 12 : 16th April'2024
 
+NOTE : use SoftAssert for verification. 
+
+STEP 1 - Launch Chrome Browser & navigate to URL - https://demo.automationtesting.in/WebTable.html
+STEP 2 - Mouse Hover on "SwitchTo" menu, click on "Frames" submenu.
+VERFIY - header of Single Iframe tab, it should be "iFrame Demo"
+STEP 3 - Enter your name in text box
+VERIFY - variable name has been entered correctly [e.getAttribute("value")]
+STEP 4 - Click on Iframe with in an Iframe button
+STEP 5 - Enter your name in the text box
+VERIFY - Inner Frame header is "iFrame Demo"
+VERIFY - Out frame header is "Nested iFrames"
+STEP 6 - Click on "Single Iframe".
+VERIFY "iFrame Demo" header is displayed. 
+
+Hint : To publish result, use softAssert.AssertAll();
+ */
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
