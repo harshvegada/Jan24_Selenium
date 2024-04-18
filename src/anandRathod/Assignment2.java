@@ -9,17 +9,26 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
 public class Assignment2 {
+	WebDriver driver;
 
-	public static void main(String[] args) {
-		WebDriver driver = new ChromeDriver();
+	void setup() {
+		driver = new ChromeDriver();
 		driver.get("https://www.facebook.com/");
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	}
+
+	void facebookSignUp() {
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.findElement(By.xpath("//a[text()='Create new account']")).click();
 		driver.findElement(By.xpath("//input[@name='firstname']")).sendKeys("TestAnand");
+		System.out.println("STEP: enter first name");
 		driver.findElement(By.xpath("//input[@name='lastname']")).sendKeys("TestRat");
+		System.out.println("STEP: enter last name");
 		driver.findElement(By.xpath("//input[@name='reg_email__']")).sendKeys("Test@gmail.com");
+		System.out.println("STEP: enter email id");
 		driver.findElement(By.xpath("//input[@data-type='password']")).sendKeys("Test12345");
+		System.out.println("STEP: enter password");
 		WebElement day = driver.findElement(By.xpath("//select[@title='Day']"));
 		Select selectDay = new Select(day);
 		selectDay.selectByVisibleText("17");
@@ -72,6 +81,11 @@ public class Assignment2 {
 			System.out.println("test pass");
 		else
 			System.out.println("Test fail");
+	}
 
+	public static void main(String[] args) {
+		Assignment2 assignment2 = new Assignment2();
+		assignment2.setup();
+		assignment2.facebookSignUp();
 	}
 }
