@@ -14,13 +14,14 @@ public class Assignment2 {
 	void setup() {
 		driver = new ChromeDriver();
 		driver.get("https://www.facebook.com/");
+		System.out.println("Step 1 : Launch browser and hit https://facebook.com");
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 
 	void facebookSignUp() {
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.findElement(By.xpath("//a[text()='Create new account']")).click();
+		System.out.println("Step 2 : Click on Create Account button");
 		driver.findElement(By.xpath("//input[@name='firstname']")).sendKeys("TestAnand");
 		System.out.println("STEP: enter first name");
 		driver.findElement(By.xpath("//input[@name='lastname']")).sendKeys("TestRat");
@@ -29,12 +30,18 @@ public class Assignment2 {
 		System.out.println("STEP: enter email id");
 		driver.findElement(By.xpath("//input[@data-type='password']")).sendKeys("Test12345");
 		System.out.println("STEP: enter password");
+		System.out.println("Step 3 : Enter appropiate value in all textbox.");
 		WebElement day = driver.findElement(By.xpath("//select[@title='Day']"));
 		Select selectDay = new Select(day);
 		selectDay.selectByVisibleText("17");
+		System.out.println("Step 4 : Select Date from Date dropdown");
+		
+		
 		WebElement month = driver.findElement(By.xpath("//select[@id='month']"));
 		Select selectMonth = new Select(month);
 		selectMonth.selectByValue("5");
+		System.out.println("Step 5 : Select Month");
+		
 		List<WebElement> monthOptionElemts = selectMonth.getOptions();
 		String selectedmonth = "";
 		for (WebElement element : monthOptionElemts) {
@@ -42,12 +49,13 @@ public class Assignment2 {
 
 				selectedmonth = element.getText();
 		}
+		
 		System.out.println("Verify- selected month is as Expected");
 		if (selectedmonth.equals("May"))
 			System.out.println("test pass");
 		else
 			System.out.println("Test fail");
-
+	
 		System.out.println("STEP-Select bithday date from date picker");
 		WebElement d = driver.findElement(By.xpath("//select[@id='day']"));
 		Select dateSelect = new Select(d);
@@ -66,9 +74,12 @@ public class Assignment2 {
 			System.out.println("Test fail");
 
 		System.out.println("STEP-Select bithday year from date picker");
+	}
+		void selectedYearVerify() {
 		WebElement y = driver.findElement(By.xpath("//select[@id='year']"));
 		Select yearSelect = new Select(y);
 		yearSelect.selectByValue("1991");
+		System.out.println("Step 6 : Select Year");
 		List<WebElement> yearOptionElemts = yearSelect.getOptions();
 		String selecteyear = "";
 		for (WebElement element : yearOptionElemts) {
@@ -87,5 +98,7 @@ public class Assignment2 {
 		Assignment2 assignment2 = new Assignment2();
 		assignment2.setup();
 		assignment2.facebookSignUp();
+		
+		assignment2.selectedYearVerify();
 	}
 }
