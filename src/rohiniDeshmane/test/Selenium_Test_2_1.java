@@ -87,5 +87,21 @@ public class Selenium_Test_2_1 {
 		System.out.println("VERIFY : The button labeled Display None should not be displayed");
 		Assert.assertFalse(notdisplayedButton.isDisplayed(), "notdisplayedButton is visible");
 		
+		
+	
+		/* Option 2nd
+		 * System.out.println("VERIFY : The button labeled Opacity 0 should not be displayed");
+		Assert.assertTrue(wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//button[@id='transparentButton']"))));
+		
+		
+		System.out.println("VERIFY : The button labeled Removed should not be displayed");
+		Assert.assertTrue(wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//button[@id='removedButton']"))));
+		
+		System.out.println("VERIFY : The button labeled Visibility Hidden should not be displayed");
+		Assert.assertTrue(wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//button[@id='invisibleButton']"))));
+		
+		System.out.println("VERIFY : The button labeled Display None should not be displayed");
+		Assert.assertTrue(wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//button[@id='notdisplayedButton']"))));
+		*/
 	}
 }
