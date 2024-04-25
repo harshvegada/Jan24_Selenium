@@ -13,6 +13,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -28,34 +29,37 @@ public class SeleniumTest1a {
 		System.out.println("STEP 1- Hit the url.");
 	}
 	
-	void isDisplayedButtion(String buttonName)
+	void isDisplayedButtion(String buttonName,boolean check)
 	{
+		boolean actual;
 		try
 		{
 			WebElement a= wb.findElement(By.xpath("//button[@id='"+buttonName+"']"));
 			System.out.println(a.isDisplayed());
+			actual=a.isDisplayed();
 		}catch(Exception e)
 		{
-			System.out.println("false");
+			System.out.println(false);
+			actual=false;
 		}
-			
+		Assert.assertEquals(actual, check);
 	}
 	@Test
 	void SelenuimTest1()
 	{
-		isDisplayedButtion("hideButton");
-		isDisplayedButtion("transparentButton");
-		isDisplayedButtion("removedButton");
-		isDisplayedButtion("invisibleButton");
-		isDisplayedButtion("notdisplayedButton");
+		isDisplayedButtion("hideButton",true);
+		isDisplayedButtion("transparentButton",true);
+		isDisplayedButtion("removedButton",true);
+		isDisplayedButtion("invisibleButton",true);
+		isDisplayedButtion("notdisplayedButton",true);
 		System.out.println("STEP 2- Checking the visibility of all button.");
 		wb.findElement(By.xpath("//button[@id='hideButton']")).click();
 		System.out.println("STEP 2- Click on Hide button");
-		isDisplayedButtion("hideButton");
-		isDisplayedButtion("transparentButton");
-		isDisplayedButtion("removedButton");
-		isDisplayedButtion("invisibleButton");
-		isDisplayedButtion("notdisplayedButton");
+		isDisplayedButtion("hideButton",true);
+		isDisplayedButtion("transparentButton",false);
+		isDisplayedButtion("removedButton",false);
+		isDisplayedButtion("invisibleButton",false);
+		isDisplayedButtion("notdisplayedButton",false);
 		System.out.println("STEP 4- Checking the visibility of all button.");
 	}
 	//button[@id='hideButton']
