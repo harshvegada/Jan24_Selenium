@@ -16,7 +16,7 @@ public class TC1 {
 	@BeforeMethod
 	public void launchBrowser() {
 		System.out.println("Step - Navigate to http://uitestingplayground.com/visibility");
-		//System.setProperty("webdriver.chrome.driver", ".\\chromeDriver\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", ".\\chromeDriver\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get("http://uitestingplayground.com/visibility");
