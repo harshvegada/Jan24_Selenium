@@ -21,7 +21,7 @@ public class TC2 {
 	@BeforeMethod
 	public void launchBrowser() {
 		System.out.println("Step - Navigate to http://uitestingplayground.com/progressbar");
-		//System.setProperty("webdriver.chrome.driver", ".\\chromeDriver\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", ".\\chromeDriver\\chromedriver.exe");
 		driver = new ChromeDriver();
 		wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		driver.manage().window().maximize();
