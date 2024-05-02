@@ -1,5 +1,6 @@
 package akshadaRajput;
 
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -74,7 +75,7 @@ public class AutomateWebTable {
 			System.out.println("TestCase1 Pass");
 		else
 			System.out.println("TestCase1 Fail");
-		driver.quit();
+		tearDown();
 	}
 
 	void getColumns() {
@@ -93,7 +94,7 @@ public class AutomateWebTable {
 		// Compare Headers
 
 		for (WebElement header : listOfElements) {
-			System.out.println("Headers in table are " + header.getText());
+			System.out.println("Headers in table are "+ header.getText());
 		}
 
 		List<String> expectedHeader = new ArrayList<String>(Arrays.asList("#", "First Name", "Last Name", "Username"));
@@ -103,7 +104,7 @@ public class AutomateWebTable {
 
 		returnFinalTestStatus(sizeResult, listResult, "TestCase2");
 		
-		driver.quit();
+		tearDown();
 
 	}
 
@@ -135,7 +136,7 @@ public class AutomateWebTable {
 
 		System.out.println("Usernames are: " + actualList);
 		
-		driver.quit();
+		tearDown();
 
 	}
 
@@ -161,8 +162,7 @@ public class AutomateWebTable {
 		}
 		System.out.println("Duplicate surnames are: " + setOfSurnames);
 		
-		driver.quit();
-
+		tearDown();
 	}
 
 	void printSurnamesUsingSet() {
@@ -178,14 +178,16 @@ public class AutomateWebTable {
 		for (int rowCount = 1; rowCount <= totalCount; rowCount++) {
 			String surname = driver.findElement(By.xpath("//table[@id='table1']/tbody/tr[" + rowCount + "]/td[3]"))
 					.getText();
-			if (setOfSurnames.contains(surname))
-				System.out.println("Duplicate LastNames are:" + surname);
+			if (setOfSurnames.contains(surname)) {
+				System.out.println("Duplicate LastNames are:");
+				System.out.println(surname);
+			}
 			else
 				setOfSurnames.add(surname);
 		}
-		System.out.println("Unique surnames are: " + setOfSurnames);
-
-		driver.quit();
+		System.out.println("Unique surnames are: ");
+		System.out.println(setOfSurnames);
+		tearDown();
 
 	}
 
@@ -216,7 +218,7 @@ public class AutomateWebTable {
 		else
 			System.out.println("TC7 Fail");
 
-		driver.quit();
+		tearDown();
 
 	}
 
@@ -244,16 +246,20 @@ public class AutomateWebTable {
 		Set<String> lastNameSet = mapOfNames.keySet();
 
 		for (String key : lastNameSet) {
-			if (mapOfNames.get(key) > 1)
+			if (mapOfNames.get(key) > 1) {
 				System.out.println("Duplicate surnames is/are: " + key);
+			}
 			else if (mapOfNames.get(key) == 1)
-				System.out.println("Unique surnames is/are: " + key);
-
+				System.out.println("Unique surnames is/are: "+ key);
 		}
-		driver.quit();
-
+		
+		tearDown();
 	}
 	
+	
+	void tearDown() {
+		driver.quit();
+	}
 
 	public static void main(String args[]) {
 		AutomateWebTable automateWebTable = new AutomateWebTable();
